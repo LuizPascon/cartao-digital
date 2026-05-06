@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartão Digital | Engenharia e Gestão</title>
+    <title>Cartão Digital Profissional | Engenharia & Gestão</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #1a365d;
-            --secondary: #2d3748;
-            --accent: #3182ce;
+            --primary: #1a365d; /* Azul Marinho Profissional */
+            --secondary: #2d3748; /* Cinza Escuro */
+            --accent: #3182ce; /* Azul Claro de Destaque */
             --bg: #f0f2f5;
             --white: #ffffff;
         }
@@ -24,34 +24,37 @@
             color: var(--secondary);
             display: flex;
             justify-content: center;
-            padding: 0;
+            align-items: flex-start; /* Alinhado ao topo para celulares */
+            min-height: 100vh;
+            padding: 0; /* Padding controlado pelo .card */
         }
 
         .card {
             width: 100%;
-            max-width: 450px;
+            max-width: 420px; /* Layout de cartão centralizado */
             background: var(--white);
-            min-height: 100vh;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh; /* Ocupar a tela toda do celular */
+            box-shadow: 0 0 25px rgba(0,0,0,0.1);
             position: relative;
         }
 
         /* Área das Fotos */
         .header-container {
             position: relative;
-            height: 240px;
+            height: 220px;
         }
 
         .cover-photo {
             width: 100%;
             height: 160px;
             object-fit: cover;
-            background: var(--primary);
+            background: #122540; /* Cor de fundo caso a imagem falhe */
+            display: block;
         }
 
         .profile-photo {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             border: 5px solid var(--white);
             position: absolute;
@@ -70,19 +73,19 @@
         }
 
         .profile-info h1 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--primary);
             margin-bottom: 5px;
         }
 
         .profile-info p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #718096;
             margin-bottom: 10px;
         }
 
         .location {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--accent);
             font-weight: 600;
         }
@@ -173,10 +176,10 @@
     </div>
 
     <div class="content">
-        <div class="section-label">Contatos Profissionais</div>
+        <div class="section-label">Conexão Profissional</div>
         <div class="btn-list">
             <a href="https://wa.me/55149XXXXXXXX" class="btn btn-main">
-                <i class="fab fa-whatsapp"></i> WhatsApp
+                <i class="fab fa-whatsapp"></i> WhatsApp Profissional
             </a>
             <a href="mailto:seu-email@dominio.com" class="btn btn-alt">
                 <i class="far fa-envelope"></i> E-mail Corporativo
@@ -189,7 +192,7 @@
             </a>
         </div>
 
-        <div class="section-label">Especialidades Técnicas</div>
+        <div class="section-label">Expertise Técnica</div>
         <div class="tech-tags">
             <span class="tag">Retrofit de Chillers (400-450 TR)</span>
             <span class="tag">Eficiência Energética (CAG)</span>
@@ -207,7 +210,7 @@
     </div>
 
     <div class="footer">
-        © 2026 • Engenharia e Consultoria Técnica
+        © 2026 • Engenharia & Gestão Técnica
     </div>
 </div>
 
