@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartão Digital Profissional</title>
+    <title>Luiz Paulo Pascon | Pro Ar Engenharia Térmica</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #1a365d; /* Azul Marinho Profissional */
-            --secondary: #2d3748; /* Cinza Escuro */
-            --accent: #3182ce; /* Azul Claro de Destaque */
-            --bg: #f0f2f5;
-            --white: #ffffff;
+            /* CORES IDENTIDADE PRO AR - Extraídas da Logo */
+            --primary: #001F61; /* Azul Marinho Pro Ar */
+            --accent: #E31D2B;  /* Vermelho Pro Ar */
+            
+            /* Cores Neutras de Estrutura */
+            --secondary: #2d3748; /* Texto Escuro Legível */
+            --bg: #f0f2f5;       /* Fundo da página (cinza claro) */
+            --white: #ffffff;    /* Fundo do cartão */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,16 +27,16 @@
             color: var(--secondary);
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Alinhado ao topo para celulares */
+            align-items: flex-start;
             min-height: 100vh;
-            padding: 0; /* Padding controlado pelo .card */
+            padding: 0;
         }
 
         .card {
             width: 100%;
-            max-width: 420px; /* Layout de cartão centralizado */
+            max-width: 420px;
             background: var(--white);
-            min-height: 100vh; /* Ocupar a tela toda do celular */
+            min-height: 100vh;
             box-shadow: 0 0 25px rgba(0,0,0,0.1);
             position: relative;
         }
@@ -48,7 +51,8 @@
             width: 100%;
             height: 160px;
             object-fit: cover;
-            background: #122540; /* Cor de fundo caso a imagem falhe */
+            /* Se a imagem capa.jpg falhar, mostra o Azul Marinho Pro Ar */
+            background: var(--primary); 
             display: block;
         }
 
@@ -68,13 +72,13 @@
         /* Informações Principais */
         .profile-info {
             text-align: center;
-            padding: 20px;
+            padding: 20px 20px 10px;
             margin-top: 5px;
         }
 
         .profile-info h1 {
             font-size: 1.5rem;
-            color: var(--primary);
+            color: var(--primary); /* Nome em Azul Pro Ar */
             margin-bottom: 5px;
         }
 
@@ -86,7 +90,7 @@
 
         .location {
             font-size: 0.8rem;
-            color: var(--accent);
+            color: var(--accent); /* Localização em Vermelho Pro Ar */
             font-weight: 600;
         }
 
@@ -130,9 +134,23 @@
             transition: all 0.2s;
         }
 
-        .btn-main { background: var(--primary); color: white; }
-        .btn-alt { background: #edf2f7; color: var(--secondary); }
-        .btn-accent { background: var(--accent); color: white; }
+        /* Botão Azul Pro Ar (Contatos) */
+        .btn-main { 
+            background: var(--primary); 
+            color: white; 
+        }
+
+        /* Botão Vermelho Pro Ar (Chamada Principal de Ação) */
+        .btn-accent { 
+            background: var(--accent); 
+            color: white; 
+        }
+
+        /* Botão Neutro (Links) */
+        .btn-alt { 
+            background: #edf2f7; 
+            color: var(--secondary); 
+        }
 
         .btn:active { transform: scale(0.97); }
 
@@ -165,8 +183,8 @@
 
 <div class="card">
     <div class="header-container">
-        <img src="capa.jpg" alt="Capa Profissional" class="cover-photo">
-        <img src="perfil.jpg" alt="Foto de Perfil" class="profile-photo">
+        <img src="capa.jpg" alt="Capa Pro Ar Engenharia Térmica" class="cover-photo">
+        <img src="perfil.jpg" alt="Luiz Paulo Pascon" class="profile-photo">
     </div>
 
     <div class="profile-info">
@@ -178,14 +196,14 @@
     <div class="content">
         <div class="section-label">Conexão Profissional</div>
         <div class="btn-list">
-            <a href="https://wa.me/5514981452411" class="btn btn-main">
+            <a href="https://wa.me/5514981452411" class="btn btn-main" target="_blank">
                 <i class="fab fa-whatsapp"></i> WhatsApp Profissional
             </a>
-            <a href="mailto:luiz.pascon@proar.com.br" class="btn btn-alt">
+            <a href="mailto:luiz.pascon@proar.com.br" class="btn btn-main">
                 <i class="far fa-envelope"></i> E-mail Corporativo
             </a>
-            <a href="https://www.linkedin.com/in/luiz-paulo-pascon-b441a516b/" class="btn btn-alt">
-                <i class="fab fa-linkedin"></i> LinkedIn
+            <a href="https://www.linkedin.com/in/luiz-paulo-pascon-b441a516b/" class="btn btn-alt" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn Profissional
             </a>
             <a href="#" class="btn btn-accent">
                 <i class="fas fa-address-book"></i> Salvar na Agenda
@@ -195,10 +213,10 @@
         <div class="section-label">Expertise Técnica</div>
         <div class="tech-tags">
             <span class="tag">Retrofit de Chillers</span>
-            <span class="tag">Eficiência Energética</span>
-            <span class="tag">Norma NBR 7256</span>
-            <span class="tag">Manutenção Industrial</span>
-            <span class="tag">Automação de processos</span>
+            <span class="tag">Eficiência Energética (CAG)</span>
+            <span class="tag">Norma NBR 7256 (Hospitais)</span>
+            <span class="tag">Manutenção Industrial York/Sabroe</span>
+            <span class="tag">Automação de processos técnico</span>
         </div>
 
         <div class="section-label">Disponibilidade</div>
