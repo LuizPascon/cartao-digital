@@ -9,14 +9,19 @@
     
     <style>
         :root {
-            /* CORES IDENTIDADE PRO AR - Extraídas da Logo */
-            --primary: #001F61; /* Azul Marinho Pro Ar */
-            --accent: #E31D2B;  /* Vermelho Pro Ar */
+            /* Cores da Identidade Pro Ar */
+            --proar-blue: #001F61;
+            --proar-red: #E31D2B;
             
-            /* Cores Neutras de Estrutura */
-            --secondary: #2d3748; /* Texto Escuro Legível */
-            --bg: #f0f2f5;       /* Fundo da página (cinza claro) */
-            --white: #ffffff;    /* Fundo do cartão */
+            /* Cores de terceiros */
+            --whatsapp-green: #25D366;
+            
+            /* Estrutura */
+            --bg: #f0f2f5;
+            --white: #ffffff;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --btn-alt-bg: #edf2f7; /* Fundo do LinkedIn */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,7 +29,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg);
-            color: var(--secondary);
+            color: var(--text-dark);
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -51,8 +56,7 @@
             width: 100%;
             height: 160px;
             object-fit: cover;
-            /* Se a imagem capa.jpg falhar, mostra o Azul Marinho Pro Ar */
-            background: var(--primary); 
+            background: var(--proar-blue); 
             display: block;
         }
 
@@ -69,7 +73,7 @@
             background: #eee;
         }
 
-        /* Informações Principais */
+        /* Informações Principais (Onde mudamos as cores) */
         .profile-info {
             text-align: center;
             padding: 20px 20px 10px;
@@ -78,19 +82,20 @@
 
         .profile-info h1 {
             font-size: 1.5rem;
-            color: var(--primary); /* Nome em Azul Pro Ar */
+            color: var(--proar-blue); /* 1. Mantém o Azul */
             margin-bottom: 5px;
         }
 
         .profile-info p {
             font-size: 0.9rem;
-            color: #718096;
+            color: var(--proar-red); /* 2. Muda para Vermelho */
+            font-weight: 600;
             margin-bottom: 10px;
         }
 
         .location {
             font-size: 0.8rem;
-            color: var(--accent); /* Localização em Vermelho Pro Ar */
+            color: var(--proar-blue); /* 3. Muda para Azul */
             font-weight: 600;
         }
 
@@ -122,6 +127,7 @@
             gap: 12px;
         }
 
+        /* Estilo base dos botões */
         .btn {
             display: flex;
             align-items: center;
@@ -132,27 +138,32 @@
             font-weight: 600;
             gap: 10px;
             transition: all 0.2s;
-        }
-
-        /* Botão Azul Pro Ar (Contatos) */
-        .btn-main { 
-            background: var(--primary); 
-            color: white; 
-        }
-
-        /* Botão Vermelho Pro Ar (Chamada Principal de Ação) */
-        .btn-accent { 
-            background: var(--accent); 
-            color: white; 
-        }
-
-        /* Botão Neutro (Links) */
-        .btn-alt { 
-            background: #edf2f7; 
-            color: var(--secondary); 
+            border: 1px solid transparent;
         }
 
         .btn:active { transform: scale(0.97); }
+
+        /* 4. WhatsApp: Verde Característico */
+        #btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: white;
+        }
+
+        /* 5 e 7. E-mail e Salvar na Agenda: Brancos */
+        .btn-white {
+            background-color: var(--white);
+            color: var(--text-dark);
+            border: 1px solid #e2e8f0; /* Borda fina para dar estrutura */
+        }
+        .btn-white:hover {
+            background-color: #f7fafc;
+        }
+
+        /* 6. LinkedIn: Mantém o original */
+        #btn-linkedin {
+            background-color: var(--btn-alt-bg);
+            color: var(--text-dark);
+        }
 
         /* Tags Técnicas */
         .tech-tags {
@@ -183,7 +194,7 @@
 
 <div class="card">
     <div class="header-container">
-        <img src="capa.jpg" alt="Capa Pro Ar Engenharia Térmica" class="cover-photo">
+        <img src="capa.jpg" alt="Capa Pro Ar Engenharia" class="cover-photo">
         <img src="perfil.jpg" alt="Luiz Paulo Pascon" class="profile-photo">
     </div>
 
@@ -196,16 +207,19 @@
     <div class="content">
         <div class="section-label">Conexão Profissional</div>
         <div class="btn-list">
-            <a href="https://wa.me/5514981452411" class="btn btn-main" target="_blank">
+            <a href="https://wa.me/5514981452411" class="btn" id="btn-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> WhatsApp Profissional
             </a>
-            <a href="mailto:luiz.pascon@proar.com.br" class="btn btn-main">
+            
+            <a href="mailto:luiz.pascon@proar.com.br" class="btn btn-white">
                 <i class="far fa-envelope"></i> E-mail Corporativo
             </a>
-            <a href="https://www.linkedin.com/in/luiz-paulo-pascon-b441a516b/" class="btn btn-alt" target="_blank">
+            
+            <a href="https://www.linkedin.com/in/luiz-paulo-pascon-b441a516b/" class="btn" id="btn-linkedin" target="_blank">
                 <i class="fab fa-linkedin"></i> LinkedIn Profissional
             </a>
-            <a href="#" class="btn btn-accent">
+            
+            <a href="#" class="btn btn-white">
                 <i class="fas fa-address-book"></i> Salvar na Agenda
             </a>
         </div>
@@ -221,7 +235,7 @@
 
         <div class="section-label">Disponibilidade</div>
         <div class="btn-list">
-            <a href="#" class="btn btn-alt">
+            <a href="#" class="btn btn-white">
                 <i class="far fa-calendar-check"></i> Agendar Reunião (Calendly)
             </a>
         </div>
