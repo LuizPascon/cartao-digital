@@ -17,7 +17,7 @@
             --whatsapp-green: #25D366;
             --linkedin-blue: #0077B5;
             
-            /* Estrutura - FUNDO BEGE CLARO */
+            /* Estrutura */
             --bg: #f0f2f5;
             --white: #F9F7F2; 
             --text-dark: #2d3748;
@@ -142,6 +142,8 @@
             transition: all 0.2s ease;
             font-size: 0.9rem;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            user-select: none; /* Impede arrastar ou selecionar o bloco */
+            -webkit-user-drag: none;
         }
 
         .btn:active { transform: scale(0.97); }
@@ -209,9 +211,13 @@
                 <i class="fas fa-address-book"></i> Salvar na Agenda
             </a>
             
-            <a href="mailto:luiz.pascon@proar.com.br" class="btn" id="btn-email" style="text-transform: lowercase;">
-                <i class="far fa-envelope"></i> luiz.pascon@proar.com.br
-            </a>
+            <div class="btn" id="btn-email" style="text-transform: lowercase; position: relative; cursor: pointer;">
+                <a href="mailto:luiz.pascon@proar.com.br" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; width: 100%; justify-content: center;">
+                    <i class="far fa-envelope"></i> luiz.pascon@proar.com.br
+                </a>
+                <i class="far fa-copy" id="copy-icon" style="position: absolute; right: 15px; cursor: pointer; padding: 5px; color: var(--text-light);" title="Copiar e-mail"></i>
+                <span id="copy-toast" style="display: none; position: absolute; right: 45px; background: var(--proar-blue); color: white; font-size: 0.75rem; padding: 4px 8px; border-radius: 6px; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.15);">Copiado!</span>
+            </div>
             
             <a href="https://wa.me/5514981452411" class="btn" id="btn-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> WhatsApp Profissional
@@ -271,6 +277,35 @@
         © 2026 • Pro Ar Engenharia Térmica
     </div>
 </div>
+
+<script>
+    document.getElementById('copy-icon').addEventListener('click', function(e) {
+        e.stopPropagation(); // Impede de abrir o link do mailto ao clicar no ícone de cópia
+        
+        const email = "luiz.pascon@proar.com.br";
+        
+        navigator.clipboard.writeText(email).then(() => {
+            const icon = document.getElementById('copy-icon');
+            const toast = document.getElementById('copy-toast');
+            
+            // Muda o ícone para check de sucesso temporariamente
+            icon.className = "fas fa-check";
+            icon.style.color = "var(--whatsapp-green)";
+            
+            // Exibe a caixinha "Copiado!"
+            toast.style.display = "inline-block";
+            
+            // Reseta após 2 segundos
+            setTimeout(() => {
+                icon.className = "far fa-copy";
+                icon.style.color = "var(--text-light)";
+                toast.style.display = "none";
+            }, 2000);
+        }).catch(err => {
+            console.error('Erro ao copiar: ', err);
+        });
+    });
+</script>
 
 </body>
 </html>
