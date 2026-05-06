@@ -1,72 +1,215 @@
-<style>
-    /* Nova estilização para Capa e Perfil */
-    .header {
-        position: relative;
-        padding: 0; /* Removido o padding antigo */
-        background: var(--primary-color);
-        height: 220px; /* Altura da área do topo */
-    }
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão Digital | Engenharia e Gestão</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2d3748;
+            --accent: #3182ce;
+            --bg: #f0f2f5;
+            --white: #ffffff;
+        }
 
-    .header-cover {
-        width: 100%;
-        height: 140px;
-        object-fit: cover;
-        background: #122540; /* Cor de fundo caso a imagem falhe */
-        display: block;
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .profile-img {
-        width: 110px;
-        height: 110px;
-        border-radius: 50%;
-        border: 4px solid var(--white);
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #eee;
-        object-fit: cover;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--secondary);
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
 
-    .info-header {
-        padding: 20px;
-        background: var(--white);
-    }
-</style>
+        .card {
+            width: 100%;
+            max-width: 450px;
+            background: var(--white);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
 
-<div class="container">
-    <div class="header">
-        <img src="capa.jpg" alt="Capa" class="header-cover">
-        <img src="perfil.jpg" alt="Foto de Perfil" class="profile-img">
+        /* Área das Fotos */
+        .header-container {
+            position: relative;
+            height: 240px;
+        }
+
+        .cover-photo {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background: var(--primary);
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid var(--white);
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            object-fit: cover;
+            background: #eee;
+        }
+
+        /* Informações Principais */
+        .profile-info {
+            text-align: center;
+            padding: 20px;
+            margin-top: 5px;
+        }
+
+        .profile-info h1 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .profile-info p {
+            font-size: 0.95rem;
+            color: #718096;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Seções e Botões */
+        .content {
+            padding: 0 25px 40px;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #a0aec0;
+            margin: 25px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #edf2f7;
+        }
+
+        .btn-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            gap: 10px;
+            transition: all 0.2s;
+        }
+
+        .btn-main { background: var(--primary); color: white; }
+        .btn-alt { background: #edf2f7; color: var(--secondary); }
+        .btn-accent { background: var(--accent); color: white; }
+
+        .btn:active { transform: scale(0.97); }
+
+        /* Tags Técnicas */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.7rem;
+            color: #cbd5e0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="header-container">
+        <img src="capa.jpg" alt="Capa Profissional" class="cover-photo">
+        <img src="perfil.jpg" alt="Foto de Perfil" class="profile-photo">
     </div>
 
-    <div class="info-header">
-        <h1>[Seu Nome Aqui]</h1>
-        <p class="subtitle">Engenheiro Mecânico | Especialista em Facilities</p>
+    <div class="profile-info">
+        <h1>[Seu Nome Completo]</h1>
+        <p>Engenheiro Mecânico | Especialista em Facilities</p>
         <span class="location"><i class="fas fa-map-marker-alt"></i> Bauru e Região, SP</span>
     </div>
 
     <div class="content">
-        <div class="section-title">Conexão Profissional</div>
-        <div class="btn-container">
-            <a href="https://wa.me/55149XXXXXXXX" class="btn btn-primary" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp Profissional
+        <div class="section-label">Contatos Profissionais</div>
+        <div class="btn-list">
+            <a href="https://wa.me/55149XXXXXXXX" class="btn btn-main">
+                <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
-            <a href="mailto:seu-email@exemplo.com.br" class="btn btn-secondary">
+            <a href="mailto:seu-email@dominio.com" class="btn btn-alt">
                 <i class="far fa-envelope"></i> E-mail Corporativo
             </a>
-            <a href="LINK_DO_SEU_LINKEDIN" class="btn btn-secondary" target="_blank">
+            <a href="#" class="btn btn-alt">
                 <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="#" class="btn btn-accent">
+                <i class="fas fa-address-book"></i> Salvar na Agenda
             </a>
         </div>
 
-        <div class="section-title">Expertise Técnica</div>
-        <div class="specialties">
-            <span class="badge">Retrofit de Chillers (400-450 TR)</span>
-            <span class="badge">Eficiência Energética (CAG)</span>
-            <span class="badge">Norma NBR 7256</span>
-            <span class="badge">Manutenção Industrial</span>
-            <span class="badge">Automação de Planilhas</span>
+        <div class="section-label">Especialidades Técnicas</div>
+        <div class="tech-tags">
+            <span class="tag">Retrofit de Chillers (400-450 TR)</span>
+            <span class="tag">Eficiência Energética (CAG)</span>
+            <span class="tag">Norma NBR 7256</span>
+            <span class="tag">Manutenção Industrial</span>
+            <span class="tag">Google Apps Script / Automação</span>
+        </div>
+
+        <div class="section-label">Disponibilidade</div>
+        <div class="btn-list">
+            <a href="#" class="btn btn-alt">
+                <i class="far fa-calendar-check"></i> Agendar Reunião (Calendly)
+            </a>
         </div>
     </div>
+
+    <div class="footer">
+        © 2026 • Engenharia e Consultoria Técnica
+    </div>
 </div>
+
+</body>
+</html>
