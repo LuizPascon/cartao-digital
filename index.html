@@ -15,13 +15,13 @@
             
             /* Cores de terceiros */
             --whatsapp-green: #25D366;
+            --linkedin-blue: #0077B5;
             
             /* Estrutura */
             --bg: #f0f2f5;
             --white: #ffffff;
             --text-dark: #2d3748;
             --text-light: #718096;
-            --btn-alt-bg: #edf2f7; /* Fundo do LinkedIn */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,24 +46,19 @@
             position: relative;
         }
 
-        /* Área das Fotos - AJUSTADA */
+        /* Área das Fotos */
         .header-container {
             position: relative;
-            height: 240px; /* Aumentado levemente para dar mais respiro */
+            height: 240px;
         }
 
         .cover-photo {
             width: 100%;
-            height: 160px; /* Mantém a altura da área da capa */
-            
-            /* ALTERAÇÃO CHAVE: contain garante que a logo oval caiba inteira sem cortes */
+            height: 160px;
             object-fit: contain; 
-            
-            /* Define o fundo atrás da logo como branco para um visual limpo */
             background-color: var(--white); 
-            
             display: block;
-            padding: 10px; /* Adiciona um pequeno respiro nas bordas da logo */
+            padding: 10px;
         }
 
         .profile-photo {
@@ -72,12 +67,12 @@
             border-radius: 50%;
             border: 5px solid var(--white);
             position: absolute;
-            bottom: 10px; /* Posiciona a foto de perfil sobre a área da capa */
+            bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
             object-fit: cover;
             background: #eee;
-            z-index: 10; /* Garante que a foto fique acima da capa */
+            z-index: 10;
         }
 
         /* Informações Principais */
@@ -142,35 +137,63 @@
             padding: 14px;
             border-radius: 12px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700; /* Negrito ligeiramente mais forte para dar peso */
             gap: 10px;
-            transition: all 0.2s;
-            border: 1px solid transparent;
+            transition: all 0.2s ease;
             font-size: 0.9rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04); /* Sombra leve para efeito 3D */
         }
 
         .btn:active { transform: scale(0.97); }
 
-        /* WhatsApp: Verde */
+        /* Botão Salvar na Agenda: Branco com detalhes em Azul Pro Ar */
+        #btn-agenda {
+            background-color: var(--white);
+            color: var(--proar-blue);
+            border: 2px solid var(--proar-blue);
+        }
+        #btn-agenda:hover, #btn-agenda:active {
+            background-color: #f0f4ff;
+        }
+
+        /* Botão E-mail: Branco com detalhes em Azul Pro Ar */
+        #btn-email {
+            background-color: var(--white);
+            color: var(--proar-blue);
+            border: 2px solid var(--proar-blue);
+        }
+        #btn-email:hover, #btn-email:active {
+            background-color: #f0f4ff;
+        }
+
+        /* Botão WhatsApp: Mantém o verde de destaque, com sombra verde */
         #btn-whatsapp {
             background-color: var(--whatsapp-green);
             color: white;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.15);
+        }
+        #btn-whatsapp:hover {
+            background-color: #20ba5a;
         }
 
-        /* E-mail e Salvar na Agenda: Brancos */
-        .btn-white {
-            background-color: var(--white);
-            color: var(--text-dark);
-            border: 1px solid #e2e8f0;
-        }
-        .btn-white:hover {
-            background-color: #f7fafc;
-        }
-
-        /* LinkedIn: Cinza */
+        /* Botão LinkedIn: Azul característico da marca */
         #btn-linkedin {
-            background-color: var(--btn-alt-bg);
-            color: var(--text-dark);
+            background-color: var(--white);
+            color: var(--linkedin-blue);
+            border: 2px solid var(--linkedin-blue);
+        }
+        #btn-linkedin:hover, #btn-linkedin:active {
+            background-color: #f0f8ff;
+        }
+
+        /* Botão Calendly (Disponibilidade): Branco com detalhes em Vermelho Pro Ar */
+        #btn-calendly {
+            background-color: var(--white);
+            color: var(--proar-red);
+            border: 2px solid var(--proar-red);
+        }
+        #btn-calendly:hover, #btn-calendly:active {
+            background-color: #fff0f1;
         }
 
         /* Tags Técnicas */
@@ -202,7 +225,7 @@
 
 <div class="card">
     <div class="header-container">
-        <img src="capa.jpg" alt="Pro Ar Engenharia Térmica" class="cover-photo">
+        <img src="capa.jpg" alt="Pro Ar Engenharia" class="cover-photo">
         <img src="perfil.jpg" alt="Luiz Paulo Pascon" class="profile-photo">
     </div>
 
@@ -216,11 +239,11 @@
         <div class="section-label">Conexão Profissional</div>
         <div class="btn-list">
             
-            <a href="luiz-pascon.vcf" class="btn btn-white" download="luiz-pascon.vcf">
+            <a href="luiz-pascon.vcf" class="btn" id="btn-agenda" download="luiz-pascon.vcf">
                 <i class="fas fa-address-book"></i> Salvar na Agenda
             </a>
-            
-            <a href="mailto:luiz.pascon@proar.com.br" class="btn btn-white">
+
+            <a href="mailto:luiz.pascon@proar.com.br" class="btn" id="btn-email">
                 <i class="far fa-envelope"></i> E-mail: luiz.pascon@proar.com.br
             </a>
 
@@ -245,7 +268,7 @@
 
         <div class="section-label">Disponibilidade</div>
         <div class="btn-list">
-            <a href="#" class="btn btn-white">
+            <a href="#" class="btn" id="btn-calendly">
                 <i class="far fa-calendar-check"></i> Agendar Reunião (Calendly)
             </a>
         </div>
