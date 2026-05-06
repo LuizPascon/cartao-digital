@@ -137,16 +137,16 @@
             padding: 14px;
             border-radius: 12px;
             text-decoration: none;
-            font-weight: 700; /* Negrito ligeiramente mais forte para dar peso */
+            font-weight: 700;
             gap: 10px;
             transition: all 0.2s ease;
             font-size: 0.9rem;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04); /* Sombra leve para efeito 3D */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
         }
 
         .btn:active { transform: scale(0.97); }
 
-        /* Botão Salvar na Agenda: Branco com detalhes em Azul Pro Ar */
+        /* Botão Salvar na Agenda */
         #btn-agenda {
             background-color: var(--white);
             color: var(--proar-blue);
@@ -156,7 +156,7 @@
             background-color: #f0f4ff;
         }
 
-        /* Botão E-mail: Branco com detalhes em Azul Pro Ar */
+        /* Botão E-mail */
         #btn-email {
             background-color: var(--white);
             color: var(--proar-blue);
@@ -166,7 +166,7 @@
             background-color: #f0f4ff;
         }
 
-        /* Botão WhatsApp: Mantém o verde de destaque, com sombra verde */
+        /* Botão WhatsApp */
         #btn-whatsapp {
             background-color: var(--whatsapp-green);
             color: white;
@@ -176,7 +176,7 @@
             background-color: #20ba5a;
         }
 
-        /* Botão LinkedIn: Azul característico da marca */
+        /* Botão LinkedIn */
         #btn-linkedin {
             background-color: var(--white);
             color: var(--linkedin-blue);
@@ -186,7 +186,7 @@
             background-color: #f0f8ff;
         }
 
-        /* Botão Calendly (Disponibilidade): Branco com detalhes em Vermelho Pro Ar */
+        /* Botão Calendly */
         #btn-calendly {
             background-color: var(--white);
             color: var(--proar-red);
@@ -196,21 +196,32 @@
             background-color: #fff0f1;
         }
 
-        /* Tags Técnicas */
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+        /* Nova Estrutura para Lista de Expertise Técnica */
+        .tech-list {
+            display: grid;
+            gap: 10px;
         }
 
-        .tag {
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             background: #f7fafc;
             border: 1px solid #e2e8f0;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.8rem;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 0.85rem;
             color: #4a5568;
             font-weight: 500;
+            line-height: 1.35;
+        }
+
+        /* Cor dos ícones da lista */
+        .tech-item i {
+            color: var(--proar-blue);
+            font-size: 1rem;
+            width: 20px; /* Garante alinhamento vertical perfeito dos textos */
+            text-align: center;
         }
 
         .footer {
@@ -258,19 +269,40 @@
         </div>
 
         <div class="section-label">Expertise Técnica</div>
-        <div class="tech-tags">
-            <span class="tag">Eficiência Energética</span>
-            <span class="tag">Projetos VRF/VRV</span>
-            <span class="tag">Projetos de redes de dutos</span>
-            <span class="tag">Projetos de água gelada e quente</span>
-            <span class="tag">Adequação a norma NBR 7256 (Hospitais)</span>
-            <span class="tag">Manutenção em equipamentos Carrier/Daikin/Trane/Hitachi/York/Sabroe</span>
-            <span class="tag">Elaboração de PMOC</span>
+        <div class="tech-list">
+            <div class="tech-item">
+                <i class="fas fa-bolt"></i>
+                <span>Eficiência Energética</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-drafting-compass"></i>
+                <span>Projetos VRF/VRV</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-wind"></i>
+                <span>Projetos de Redes de Dutos</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-faucet-drip"></i>
+                <span>Projetos de Água Gelada e Quente</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-shield-halved"></i>
+                <span>Adequação à Norma NBR 7256 (Hospitais)</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-tools"></i>
+                <span>Manutenção: Carrier / Daikin / Trane / Hitachi / York / Sabroe</span>
+            </div>
+            <div class="tech-item">
+                <i class="far fa-file-alt"></i>
+                <span>Elaboração de PMOC</span>
+            </div>
         </div>
 
         <div class="section-label">Disponibilidade</div>
         <div class="btn-list">
-            <a href="https://calendly.com/luiz-pascon-proar/reuniao" class="btn" id="btn-calendly">
+            <a href="https://calendly.com/luiz-pascon-proar/reuniao" class="btn" id="btn-calendly" target="_blank">
                 <i class="far fa-calendar-check"></i> Agendar Reunião
             </a>
         </div>
