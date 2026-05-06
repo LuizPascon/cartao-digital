@@ -46,18 +46,24 @@
             position: relative;
         }
 
-        /* Área das Fotos */
+        /* Área das Fotos - AJUSTADA */
         .header-container {
             position: relative;
-            height: 220px;
+            height: 240px; /* Aumentado levemente para dar mais respiro */
         }
 
         .cover-photo {
             width: 100%;
-            height: 160px;
-            object-fit: cover;
-            background: var(--proar-blue); 
+            height: 160px; /* Mantém a altura da área da capa */
+            
+            /* ALTERAÇÃO CHAVE: contain garante que a logo oval caiba inteira sem cortes */
+            object-fit: contain; 
+            
+            /* Define o fundo atrás da logo como branco para um visual limpo */
+            background-color: var(--white); 
+            
             display: block;
+            padding: 10px; /* Adiciona um pequeno respiro nas bordas da logo */
         }
 
         .profile-photo {
@@ -66,11 +72,12 @@
             border-radius: 50%;
             border: 5px solid var(--white);
             position: absolute;
-            bottom: 10px;
+            bottom: 10px; /* Posiciona a foto de perfil sobre a área da capa */
             left: 50%;
             transform: translateX(-50%);
             object-fit: cover;
             background: #eee;
+            z-index: 10; /* Garante que a foto fique acima da capa */
         }
 
         /* Informações Principais */
@@ -139,7 +146,7 @@
             gap: 10px;
             transition: all 0.2s;
             border: 1px solid transparent;
-            font-size: 0.9rem; /* Leve ajuste de tamanho para caber o e-mail de forma harmônica */
+            font-size: 0.9rem;
         }
 
         .btn:active { transform: scale(0.97); }
@@ -195,7 +202,7 @@
 
 <div class="card">
     <div class="header-container">
-        <img src="capa.jpg" alt="Capa Pro Ar Engenharia" class="cover-photo">
+        <img src="capa.jpg" alt="Pro Ar Engenharia Térmica" class="cover-photo">
         <img src="perfil.jpg" alt="Luiz Paulo Pascon" class="profile-photo">
     </div>
 
