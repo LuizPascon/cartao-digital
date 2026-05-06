@@ -146,57 +146,13 @@
 
         .btn:active { transform: scale(0.97); }
 
-        /* Botão Salvar na Agenda */
-        #btn-agenda {
-            background-color: var(--white);
-            color: var(--proar-blue);
-            border: 2px solid var(--proar-blue);
-        }
-        #btn-agenda:hover, #btn-agenda:active {
-            background-color: #f0f4ff;
-        }
+        #btn-agenda { background-color: var(--white); color: var(--proar-blue); border: 2px solid var(--proar-blue); }
+        #btn-email { background-color: var(--white); color: var(--proar-blue); border: 2px solid var(--proar-blue); }
+        #btn-whatsapp { background-color: var(--whatsapp-green); color: white; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.15); }
+        #btn-linkedin { background-color: var(--white); color: var(--linkedin-blue); border: 2px solid var(--linkedin-blue); }
+        #btn-calendly { background-color: var(--white); color: var(--proar-red); border: 2px solid var(--proar-red); }
 
-        /* Botão E-mail */
-        #btn-email {
-            background-color: var(--white);
-            color: var(--proar-blue);
-            border: 2px solid var(--proar-blue);
-        }
-        #btn-email:hover, #btn-email:active {
-            background-color: #f0f4ff;
-        }
-
-        /* Botão WhatsApp */
-        #btn-whatsapp {
-            background-color: var(--whatsapp-green);
-            color: white;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.15);
-        }
-        #btn-whatsapp:hover {
-            background-color: #20ba5a;
-        }
-
-        /* Botão LinkedIn */
-        #btn-linkedin {
-            background-color: var(--white);
-            color: var(--linkedin-blue);
-            border: 2px solid var(--linkedin-blue);
-        }
-        #btn-linkedin:hover, #btn-linkedin:active {
-            background-color: #f0f8ff;
-        }
-
-        /* Botão Calendly */
-        #btn-calendly {
-            background-color: var(--white);
-            color: var(--proar-red);
-            border: 2px solid var(--proar-red);
-        }
-        #btn-calendly:hover, #btn-calendly:active {
-            background-color: #fff0f1;
-        }
-
-        /* Nova Estrutura para Lista de Expertise Técnica */
+        /* Lista de Expertise Técnica */
         .tech-list {
             display: grid;
             gap: 10px;
@@ -216,11 +172,10 @@
             line-height: 1.35;
         }
 
-        /* Cor dos ícones da lista */
         .tech-item i {
             color: var(--proar-blue);
             font-size: 1rem;
-            width: 20px; /* Garante alinhamento vertical perfeito dos textos */
+            width: 20px;
             text-align: center;
         }
 
@@ -250,20 +205,20 @@
         <div class="section-label">Conexão Profissional</div>
         <div class="btn-list">
             
-            <a href="luiz-pascon.vcf" class="btn" id="btn-agenda" download="luiz-pascon.vcf">
-                <i class="fas fa-address-book"></i> Salvar na Agenda
+            <a href="https://wa.me/5514981452411" class="btn" id="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp Profissional
             </a>
 
             <a href="mailto:luiz.pascon@proar.com.br" class="btn" id="btn-email">
-                <i class="far fa-envelope"></i> E-mail: luiz.pascon@proar.com.br
-            </a>
-
-            <a href="https://wa.me/5514981452411" class="btn" id="btn-whatsapp" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp Profissional
+                <i class="far fa-envelope"></i> E-mail Corporativo
             </a>
             
             <a href="https://www.linkedin.com/in/luiz-paulo-pascon-b441a516b/" class="btn" id="btn-linkedin" target="_blank">
                 <i class="fab fa-linkedin"></i> LinkedIn Profissional
+            </a>
+
+            <a href="luiz-pascon.vcf" class="btn" id="btn-agenda" download="luiz-pascon.vcf">
+                <i class="fas fa-address-book"></i> Salvar na Agenda
             </a>
             
         </div>
@@ -283,11 +238,11 @@
                 <span>Projetos de Redes de Dutos</span>
             </div>
             <div class="tech-item">
-                <i class="fas fa-faucet-drip"></i>
+                <i class="fas fa-snowflake"></i>
                 <span>Projetos de Água Gelada e Quente</span>
             </div>
             <div class="tech-item">
-                <i class="fas fa-shield-halved"></i>
+                <i class="fas fa-hospital"></i>
                 <span>Adequação à Norma NBR 7256 (Hospitais)</span>
             </div>
             <div class="tech-item">
@@ -297,6 +252,10 @@
             <div class="tech-item">
                 <i class="far fa-file-alt"></i>
                 <span>Elaboração de PMOC</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-certificate"></i>
+                <span>Laudos Técnicos</span>
             </div>
         </div>
 
