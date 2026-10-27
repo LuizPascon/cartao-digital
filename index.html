@@ -4,75 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luiz Paulo Pascon | Pro Ar Engenharia Térmica</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            /* Cores da Identidade Pro Ar */
-            --proar-blue: #001F61;
-            --proar-red: #E31D2B;
+            /* Cores de Destaque da Marca */
+            --proar-blue: #2563EB;
+            --proar-blue-hover: #1D4ED8;
+            --proar-red: #EF4444;
             
-            /* Cores de terceiros */
+            /* Cores de Terceiros */
             --whatsapp-green: #25D366;
-            --linkedin-blue: #0077B5;
+            --linkedin-blue: #0A66C2;
             
-            /* Estrutura */
-            --bg: #f0f2f5;
-            --white: #F9F7F2; 
-            --text-dark: #2d3748;
-            --text-light: #718096;
+            /* Tema Escuro / Dark Mode */
+            --bg-body: #0F172A;
+            --bg-card: #1E293B;
+            --bg-element: #334155;
+            --bg-element-hover: #475569;
+            
+            --border-color: rgba(255, 255, 255, 0.1);
+            
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --text-subtle: #64748B;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-dark);
+            background-color: var(--bg-body);
+            color: var(--text-main);
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .card {
             width: 100%;
             max-width: 420px;
-            background: var(--white);
+            background: var(--bg-card);
             min-height: 100vh;
-            box-shadow: 0 0 25px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
             position: relative;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
         }
 
         /* Área das Fotos */
         .header-container {
             position: relative;
-            height: 240px;
+            height: 230px;
+            background: #000;
         }
 
         .cover-photo {
             width: 100%;
-            height: 160px;
+            height: 150px;
             object-fit: contain; 
-            background-color: var(--white); 
+            background-color: #0F172A; 
             display: block;
-            padding: 10px;
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .profile-photo {
             width: 110px;
             height: 110px;
             border-radius: 50%;
-            border: 5px solid var(--white);
+            border: 4px solid var(--bg-card);
             position: absolute;
-            bottom: 10px;
+            bottom: 5px;
             left: 50%;
             transform: translateX(-50%);
             object-fit: cover;
-            background: #eee;
+            background: var(--bg-element);
             z-index: 10;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
         }
 
         /* Informações Principais */
@@ -83,35 +96,46 @@
         }
 
         .profile-info h1 {
-            font-size: 1.5rem;
-            color: var(--proar-blue);
-            margin-bottom: 5px;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            letter-spacing: -0.02em;
         }
 
         .profile-info p {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--proar-red);
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
         }
 
         .location {
             font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .location i {
             color: var(--proar-blue);
-            font-weight: 600;
         }
 
         /* Seções e Botões */
         .content {
-            padding: 0 25px 40px;
+            padding: 0 22px 40px;
         }
 
         .section-label {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             text-transform: uppercase;
             letter-spacing: 1.2px;
-            color: #a0aec0;
-            margin: 25px 0 15px;
+            color: var(--text-subtle);
+            font-weight: 700;
+            margin: 24px 0 14px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -121,71 +145,172 @@
             content: "";
             flex: 1;
             height: 1px;
-            background: #edf2f7;
+            background: var(--border-color);
         }
 
         .btn-list {
             display: grid;
-            gap: 12px;
+            gap: 10px;
         }
 
-        /* Estilo base dos botões */
+        /* Estilo base e Microinterações dos Botões */
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 14px;
-            border-radius: 12px;
+            padding: 13px 16px;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             gap: 10px;
-            transition: all 0.2s ease;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.88rem;
+            background: var(--bg-element);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
             user-select: none;
-            -webkit-user-drag: none;
+            cursor: pointer;
         }
 
-        .btn:active { transform: scale(0.97); }
+        .btn:hover {
+            background: var(--bg-element-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
 
-        #btn-agenda { background-color: var(--white); color: var(--proar-blue); border: 2px solid var(--proar-blue); }
-        #btn-email { background-color: var(--white); color: var(--proar-blue); border: 2px solid var(--proar-blue); }
-        #btn-whatsapp { background-color: var(--white); color: var(--whatsapp-green); border: 2px solid var(--whatsapp-green); }
-        #btn-linkedin { background-color: var(--white); color: var(--linkedin-blue); border: 2px solid var(--linkedin-blue); }
-        #btn-calendly { background-color: var(--white); color: var(--proar-red); border: 2px solid var(--proar-red); }
+        .btn:active { 
+            transform: translateY(0); 
+        }
+
+        #btn-agenda {
+            background: linear-gradient(135deg, #2563EB, #1D4ED8);
+            color: #FFFFFF;
+            border: none;
+        }
+        #btn-agenda:hover {
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        }
+
+        #btn-whatsapp {
+            background: rgba(37, 211, 102, 0.1);
+            color: #4ADE80;
+            border: 1px solid rgba(37, 211, 102, 0.25);
+        }
+        #btn-whatsapp:hover {
+            background: rgba(37, 211, 102, 0.2);
+        }
+
+        #btn-linkedin {
+            background: rgba(10, 102, 194, 0.1);
+            color: #60A5FA;
+            border: 1px solid rgba(10, 102, 194, 0.25);
+        }
+        #btn-linkedin:hover {
+            background: rgba(10, 102, 194, 0.2);
+        }
+
+        #btn-calendly {
+            background: rgba(239, 68, 68, 0.1);
+            color: #F87171;
+            border: 1px solid rgba(239, 68, 68, 0.25);
+        }
+        #btn-calendly:hover {
+            background: rgba(239, 68, 68, 0.2);
+        }
+
+        #btn-share {
+            background: var(--bg-element);
+            color: var(--text-muted);
+        }
 
         /* Lista de Expertise Técnica */
         .tech-list {
             display: grid;
-            gap: 10px;
+            gap: 8px;
         }
 
         .tech-item {
             display: flex;
             align-items: center;
             gap: 12px;
-            background: rgba(0, 31, 97, 0.03);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 12px 14px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            color: #4a5568;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 11px 14px;
+            border-radius: 8px;
+            font-size: 0.83rem;
+            color: var(--text-muted);
             font-weight: 500;
             line-height: 1.35;
         }
 
         .tech-item i {
             color: var(--proar-blue);
-            font-size: 1rem;
-            width: 20px;
+            font-size: 0.95rem;
+            width: 18px;
             text-align: center;
+        }
+
+        /* Seção de Portfólio (Acordeão) */
+        .accordion {
+            display: grid;
+            gap: 10px;
+        }
+
+        .accordion-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .accordion-header {
+            padding: 13px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            user-select: none;
+        }
+
+        .accordion-header i.fa-chevron-down {
+            font-size: 0.75rem;
+            color: var(--text-subtle);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-header i.fa-chevron-down {
+            transform: rotate(180deg);
+            color: var(--proar-blue);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+            background: rgba(0, 0, 0, 0.15);
+            padding: 0 15px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+            transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+            padding: 12px 15px 15px;
+            border-top: 1px solid var(--border-color);
         }
 
         .footer {
             text-align: center;
             padding: 20px;
-            font-size: 0.7rem;
-            color: #cbd5e0;
+            font-size: 0.72rem;
+            color: var(--text-subtle);
+            border-top: 1px solid var(--border-color);
         }
     </style>
 </head>
@@ -211,25 +336,60 @@
                 <i class="fas fa-address-book"></i> Salvar Contato
             </a>
             
-            <div class="btn" id="btn-email" style="text-transform: lowercase; position: relative; cursor: pointer;">
+            <div class="btn" id="btn-email" style="text-transform: lowercase; position: relative;">
                 <a href="mailto:luiz.pascon@proar.com.br" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; width: 100%; justify-content: center;">
                     <i class="far fa-envelope"></i> luiz.pascon@proar.com.br
                 </a>
-                <i class="far fa-copy" id="copy-icon" style="position: absolute; right: 15px; cursor: pointer; padding: 5px; color: var(--text-light);" title="Copiar e-mail"></i>
-                <span id="copy-toast" style="display: none; position: absolute; right: 45px; background: var(--proar-blue); color: white; font-size: 0.75rem; padding: 4px 8px; border-radius: 6px; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.15);">Copiado!</span>
+                <i class="far fa-copy" id="copy-icon" style="position: absolute; right: 15px; cursor: pointer; padding: 5px; color: var(--text-subtle);" title="Copiar e-mail"></i>
+                <span id="copy-toast" style="display: none; position: absolute; right: 45px; background: var(--proar-blue); color: white; font-size: 0.75rem; padding: 4px 8px; border-radius: 6px; font-weight: 600;">Copiado!</span>
             </div>
             
-            <a href="https://wa.me/5514981452411" class="btn" id="btn-whatsapp" target="_blank">
-                <span style="background-color: var(--whatsapp-green); color: white; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; font-size: 0.85rem; margin-right: 2px;">
-                    <i class="fab fa-whatsapp"></i>
-                </span>
+            <a href="https://wa.me/5514981452411?text=Olá%20Luiz,%20acessei%20seu%20cartão%20digital%20e%20gostaria%20de%20falar%20sobre%20um%20projeto." class="btn" id="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp" style="font-size: 1.1rem;"></i>
                 WhatsApp
             </a>
             
             <a href="https://www.linkedin.com/in/luiz-paulo-pascon-b441a516b/" class="btn" id="btn-linkedin" target="_blank">
-                <i class="fab fa-linkedin" style="font-size: 1.15rem;"></i> LinkedIn
+                <i class="fab fa-linkedin" style="font-size: 1.1rem;"></i> LinkedIn
             </a>
+
+            <button class="btn" id="btn-share">
+                <i class="fas fa-share-alt"></i> Compartilhar Cartão
+            </button>
             
+        </div>
+
+        <div class="section-label">Destaques & Portfólio</div>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span><i class="fas fa-snowflake" style="color: var(--proar-blue); margin-right: 8px;"></i> Central de Água Gelada & Chillers</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Dimensionamento, comissionamento e manutenção especializada em grandes centrais térmicas (York, Carrier, Trane, Sabroe).</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span><i class="fas fa-hospital" style="color: var(--proar-blue); margin-right: 8px;"></i> Climatização Hospitalar (NBR 7256)</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Projetos de filtragem absoluta, controle de pressão e contaminação em ambientes críticos e cirúrgicos.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span><i class="fas fa-file-contract" style="color: var(--proar-blue); margin-right: 8px;"></i> Gestão de PMOC & Laudos</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Implantação de PMOC com responsável técnico credenciado, auditorias de eficiência energética e pareceres técnicos.</p>
+                </div>
+            </div>
         </div>
 
         <div class="section-label">Expertise Técnica</div>
@@ -282,30 +442,61 @@
 </div>
 
 <script>
+    // Copiar E-mail
     document.getElementById('copy-icon').addEventListener('click', function(e) {
-        e.stopPropagation(); // Impede de abrir o link do mailto ao clicar no ícone de cópia
-        
+        e.stopPropagation();
         const email = "luiz.pascon@proar.com.br";
         
         navigator.clipboard.writeText(email).then(() => {
             const icon = document.getElementById('copy-icon');
             const toast = document.getElementById('copy-toast');
             
-            // Muda o ícone para check de sucesso temporariamente
             icon.className = "fas fa-check";
             icon.style.color = "var(--whatsapp-green)";
-            
-            // Exibe a caixinha "Copiado!"
             toast.style.display = "inline-block";
             
-            // Reseta após 2 segundos
             setTimeout(() => {
                 icon.className = "far fa-copy";
-                icon.style.color = "var(--text-light)";
+                icon.style.color = "var(--text-subtle)";
                 toast.style.display = "none";
             }, 2000);
-        }).catch(err => {
-            console.error('Erro ao copiar: ', err);
+        });
+    });
+
+    // Compartilhamento Nativo (Web Share API)
+    document.getElementById('btn-share').addEventListener('click', async () => {
+        const shareData = {
+            title: 'Luiz Paulo Pascon | Pro Ar Engenharia',
+            text: 'Cartão de Visitas Digital - Luiz Paulo Pascon | Engenheiro Mecânico & Especialista HVAC',
+            url: window.location.href
+        };
+
+        if (navigator.share) {
+            try {
+                await navigator.share(shareData);
+            } catch (err) {
+                console.log('Compartilhamento cancelado.');
+            }
+        } else {
+            // Fallback para copiar o link
+            navigator.clipboard.writeText(window.location.href);
+            alert('Link do cartão copiado para a área de transferência!');
+        }
+    });
+
+    // Acordeão do Portfólio
+    document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const item = header.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Fecha todos os itens
+            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+            
+            // Abre apenas se não estava ativo
+            if (!isActive) {
+                item.classList.add('active');
+            }
         });
     });
 </script>
