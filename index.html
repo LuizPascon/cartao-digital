@@ -50,14 +50,14 @@
             border-right: 1px solid var(--border-color);
         }
 
-        /* Nova Área da Logo: Cartão Flutuante Integrado */
+        /* Área da Logo: Cartão Flutuante Integrado */
         .header-container {
             padding: 24px 20px 10px;
             text-align: center;
         }
 
         .logo-wrapper {
-            background: rgba(255, 255, 255, 0.95); /* Fundo sutilmente translúcido que destaca a logo sem cortar a harmonia */
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 14px;
             padding: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -74,11 +74,11 @@
             display: block;
         }
 
-        /* Foto de Perfil Centralizada com Moldura Perfeita */
+        /* Foto de Perfil Centralizada */
         .profile-section {
             position: relative;
             text-align: center;
-            margin-top: -30px; /* Sobrepõe levemente o bloco da logo para unificar */
+            margin-top: -30px;
             z-index: 10;
         }
 
@@ -210,11 +210,6 @@
         }
         #btn-calendly:hover { background: rgba(239, 68, 68, 0.2); }
 
-        #btn-share {
-            background: var(--bg-element);
-            color: var(--text-muted);
-        }
-
         /* Lista de Expertise Técnica */
         .tech-list {
             display: grid;
@@ -297,12 +292,38 @@
             border-top: 1px solid var(--border-color);
         }
 
+        /* Rodapé Atualizado com o Compartilhamento Discreto */
         .footer {
             text-align: center;
-            padding: 20px;
+            padding: 22px 20px;
             font-size: 0.72rem;
             color: var(--text-subtle);
             border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .footer-share-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .footer-share-btn:hover {
+            background: var(--bg-element);
+            color: var(--text-main);
+            border-color: var(--text-subtle);
         }
     </style>
 </head>
@@ -351,10 +372,6 @@
             <a href="https://www.linkedin.com/in/luiz-paulo-pascon-b441a516b/" class="btn" id="btn-linkedin" target="_blank">
                 <i class="fab fa-linkedin" style="font-size: 1.1rem;"></i> LinkedIn
             </a>
-
-            <button class="btn" id="btn-share">
-                <i class="fas fa-share-alt"></i> Compartilhar Cartão
-            </button>
             
         </div>
 
@@ -435,8 +452,12 @@
         </div>
     </div>
 
+    <!-- Rodapé com o botão de compartilhamento integrado -->
     <div class="footer">
-        © 2026 • Pro Ar Engenharia Térmica
+        <button class="footer-share-btn" id="btn-share">
+            <i class="fas fa-share-alt"></i> Compartilhar Cartão
+        </button>
+        <span>© 2026 • Pro Ar Engenharia Térmica</span>
     </div>
 </div>
 
@@ -462,7 +483,7 @@
         });
     });
 
-    // Compartilhamento Nativo (Web Share API)
+    // Compartilhamento Nativo (Web Share API) movido para o rodapé
     document.getElementById('btn-share').addEventListener('click', async () => {
         const shareData = {
             title: 'Luiz Paulo Pascon | Pro Ar Engenharia',
