@@ -9,23 +9,18 @@
     
     <style>
         :root {
-            /* Cores de Destaque da Marca */
             --proar-blue: #2563EB;
             --proar-blue-hover: #1D4ED8;
             --proar-red: #EF4444;
-            
-            /* Cores de Terceiros */
             --whatsapp-green: #25D366;
             --linkedin-blue: #0A66C2;
             
-            /* Tema Escuro / Dark Mode */
             --bg-body: #0F172A;
             --bg-card: #1E293B;
             --bg-element: #334155;
             --bg-element-hover: #475569;
             
             --border-color: rgba(255, 255, 255, 0.1);
-            
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
             --text-subtle: #64748B;
@@ -41,7 +36,6 @@
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 0;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -56,43 +50,53 @@
             border-right: 1px solid var(--border-color);
         }
 
-        /* Área das Fotos */
+        /* Nova Área da Logo: Cartão Flutuante Integrado */
         .header-container {
-            position: relative;
-            height: 230px;
-            background: #FFFFFF; /* Fundo branco para destacar a logo da Pro Ar */
-            border-bottom: 1px solid var(--border-color);
+            padding: 24px 20px 10px;
+            text-align: center;
+        }
+
+        .logo-wrapper {
+            background: rgba(255, 255, 255, 0.95); /* Fundo sutilmente translúcido que destaca a logo sem cortar a harmonia */
+            border-radius: 14px;
+            padding: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            width: 100%;
+            max-width: 380px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .cover-photo {
             width: 100%;
-            height: 155px;
-            object-fit: contain; 
-            background-color: #FFFFFF; 
+            height: 90px;
+            object-fit: contain;
             display: block;
-            padding: 12px;
+        }
+
+        /* Foto de Perfil Centralizada com Moldura Perfeita */
+        .profile-section {
+            position: relative;
+            text-align: center;
+            margin-top: -30px; /* Sobrepõe levemente o bloco da logo para unificar */
+            z-index: 10;
         }
 
         .profile-photo {
-            width: 110px;
-            height: 110px;
+            width: 105px;
+            height: 105px;
             border-radius: 50%;
             border: 4px solid var(--bg-card);
-            position: absolute;
-            bottom: -15px; /* Posicionamento ajustado para fluir perfeitamente */
-            left: 50%;
-            transform: translateX(-50%);
             object-fit: cover;
             background: var(--bg-element);
-            z-index: 10;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            display: inline-block;
         }
 
         /* Informações Principais */
         .profile-info {
             text-align: center;
-            padding: 30px 20px 10px; /* Padding superior ajustado para acomodar a foto */
-            margin-top: 5px;
+            padding: 10px 20px 10px;
         }
 
         .profile-info h1 {
@@ -108,7 +112,6 @@
             color: var(--proar-red);
             font-weight: 600;
             margin-bottom: 8px;
-            letter-spacing: -0.01em;
         }
 
         .location {
@@ -153,7 +156,6 @@
             gap: 10px;
         }
 
-        /* Estilo base e Microinterações dos Botões */
         .btn {
             display: flex;
             align-items: center;
@@ -178,45 +180,35 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
         }
 
-        .btn:active { 
-            transform: translateY(0); 
-        }
+        .btn:active { transform: translateY(0); }
 
         #btn-agenda {
             background: linear-gradient(135deg, #2563EB, #1D4ED8);
             color: #FFFFFF;
             border: none;
         }
-        #btn-agenda:hover {
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
-        }
+        #btn-agenda:hover { box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4); }
 
         #btn-whatsapp {
             background: rgba(37, 211, 102, 0.1);
             color: #4ADE80;
             border: 1px solid rgba(37, 211, 102, 0.25);
         }
-        #btn-whatsapp:hover {
-            background: rgba(37, 211, 102, 0.2);
-        }
+        #btn-whatsapp:hover { background: rgba(37, 211, 102, 0.2); }
 
         #btn-linkedin {
             background: rgba(10, 102, 194, 0.1);
             color: #60A5FA;
             border: 1px solid rgba(10, 102, 194, 0.25);
         }
-        #btn-linkedin:hover {
-            background: rgba(10, 102, 194, 0.2);
-        }
+        #btn-linkedin:hover { background: rgba(10, 102, 194, 0.2); }
 
         #btn-calendly {
             background: rgba(239, 68, 68, 0.1);
             color: #F87171;
             border: 1px solid rgba(239, 68, 68, 0.25);
         }
-        #btn-calendly:hover {
-            background: rgba(239, 68, 68, 0.2);
-        }
+        #btn-calendly:hover { background: rgba(239, 68, 68, 0.2); }
 
         #btn-share {
             background: var(--bg-element);
@@ -250,7 +242,7 @@
             text-align: center;
         }
 
-        /* Seção de Portfólio (Acordeão) */
+        /* Acordeão do Portfólio */
         .accordion {
             display: grid;
             gap: 10px;
@@ -317,8 +309,15 @@
 <body>
 
 <div class="card">
+    <!-- Bloco da Logo Integrado e Flutuante -->
     <div class="header-container">
-        <img src="capa.jpg" alt="Pro Ar Engenharia" class="cover-photo">
+        <div class="logo-wrapper">
+            <img src="capa.jpg" alt="Pro Ar Engenharia" class="cover-photo">
+        </div>
+    </div>
+
+    <!-- Foto de Perfil Centralizada -->
+    <div class="profile-section">
         <img src="perfil.jpg" alt="Luiz Paulo Pascon" class="profile-photo">
     </div>
 
@@ -344,7 +343,7 @@
                 <span id="copy-toast" style="display: none; position: absolute; right: 45px; background: var(--proar-blue); color: white; font-size: 0.75rem; padding: 4px 8px; border-radius: 6px; font-weight: 600;">Copiado!</span>
             </div>
             
-            <a href="https://wa.me/5514981452411?text=Olá%20Luiz,%20acessei%20seu%20cartão%20digital." class="btn" id="btn-whatsapp" target="_blank">
+            <a href="https://wa.me/5514981452411?text=Olá%20Luiz,%20acessei%20seu%20cartão%20digital%20e%20gostaria%20de%20falar%20sobre%20um%20projeto." class="btn" id="btn-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp" style="font-size: 1.1rem;"></i>
                 WhatsApp
             </a>
@@ -478,7 +477,6 @@
                 console.log('Compartilhamento cancelado.');
             }
         } else {
-            // Fallback para copiar o link
             navigator.clipboard.writeText(window.location.href);
             alert('Link do cartão copiado para a área de transferência!');
         }
@@ -490,10 +488,8 @@
             const item = header.parentElement;
             const isActive = item.classList.contains('active');
             
-            // Fecha todos os itens
             document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
             
-            // Abre apenas se não estava ativo
             if (!isActive) {
                 item.classList.add('active');
             }
