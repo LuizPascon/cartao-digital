@@ -10,20 +10,18 @@
     <style>
         :root {
             /* Cores de Destaque da Marca */
-            --proar-blue: #3B82F6;
-            --proar-blue-hover: #2563EB;
+            --proar-blue: #2563EB;
             --proar-red: #EF4444;
-            --whatsapp-green: #22C55E;
-            --linkedin-blue: #0A66C2;
+            --whatsapp-green: #25D366;
             
-            /* Nova Paleta Baseada em Tons de Cinza Neutros / Chumbo Industrial */
-            --bg-body: #090D16;        /* Fundo externo bem escuro e neutro */
-            --bg-card: #111827;        /* Cartão principal em cinza chumbo escuro */
-            --bg-element: #1F2937;     /* Botões e cards em cinza intermediário */
-            --bg-element-hover: #374151; /* Hover em cinza mais claro */
+            /* Paleta Ajustada: Foco em Cinza Chumbo / Industrial */
+            --bg-body: #111318;
+            --bg-card: #1A1D24;
+            --bg-element: #262B35;
+            --bg-element-hover: #323844;
             
             --border-color: rgba(255, 255, 255, 0.08);
-            --text-main: #F9FAFB;
+            --text-main: #F3F4F6;
             --text-muted: #9CA3AF;
             --text-subtle: #6B7280;
         }
@@ -180,35 +178,36 @@
             background: var(--bg-element-hover);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .btn:active { transform: translateY(0); }
 
         #btn-agenda {
-            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            background: linear-gradient(135deg, #374151, #1F2937);
             color: #FFFFFF;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
-        #btn-agenda:hover { box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4); }
+        #btn-agenda:hover { box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4); }
 
         #btn-whatsapp {
-            background: rgba(34, 197, 94, 0.08);
+            background: rgba(37, 211, 102, 0.08);
             color: #4ADE80;
-            border: 1px solid rgba(34, 197, 94, 0.25);
+            border: 1px solid rgba(37, 211, 102, 0.2);
         }
-        #btn-whatsapp:hover { background: rgba(34, 197, 94, 0.15); }
+        #btn-whatsapp:hover { background: rgba(37, 211, 102, 0.15); }
 
         #btn-linkedin {
             background: rgba(10, 102, 194, 0.08);
             color: #60A5FA;
-            border: 1px solid rgba(10, 102, 194, 0.25);
+            border: 1px solid rgba(10, 102, 194, 0.2);
         }
         #btn-linkedin:hover { background: rgba(10, 102, 194, 0.15); }
 
         #btn-calendly {
             background: rgba(239, 68, 68, 0.08);
             color: #F87171;
-            border: 1px solid rgba(239, 68, 68, 0.25);
+            border: 1px solid rgba(239, 68, 68, 0.2);
         }
         #btn-calendly:hover { background: rgba(239, 68, 68, 0.15); }
 
@@ -332,14 +331,12 @@
 <body>
 
 <div class="card">
-    <!-- Bloco da Logo Integrado e Flutuante -->
     <div class="header-container">
         <div class="logo-wrapper">
             <img src="capa.jpg" alt="Pro Ar Engenharia" class="cover-photo">
         </div>
     </div>
 
-    <!-- Foto de Perfil Centralizada -->
     <div class="profile-section">
         <img src="perfil.jpg" alt="Luiz Paulo Pascon" class="profile-photo">
     </div>
@@ -363,7 +360,7 @@
                     <i class="far fa-envelope"></i> luiz.pascon@proar.com.br
                 </a>
                 <i class="far fa-copy" id="copy-icon" style="position: absolute; right: 15px; cursor: pointer; padding: 5px; color: var(--text-subtle);" title="Copiar e-mail"></i>
-                <span id="copy-toast" style="display: none; position: absolute; right: 45px; background: var(--proar-blue); color: white; font-size: 0.75rem; padding: 4px 8px; border-radius: 6px; font-weight: 600;">Copiado!</span>
+                <span id="copy-toast" style="display: none; position: absolute; right: 45px; background: #374151; color: white; font-size: 0.75rem; padding: 4px 8px; border-radius: 6px; font-weight: 600;">Copiado!</span>
             </div>
             
             <a href="https://wa.me/5514981452411?text=Olá%20Luiz,%20acessei%20seu%20cartão%20digital%20e%20gostaria%20de%20falar%20sobre%20um%20projeto." class="btn" id="btn-whatsapp" target="_blank">
@@ -454,7 +451,6 @@
         </div>
     </div>
 
-    <!-- Rodapé com o botão de compartilhamento integrado -->
     <div class="footer">
         <button class="footer-share-btn" id="btn-share">
             <i class="fas fa-share-alt"></i> Compartilhar Cartão
@@ -485,7 +481,7 @@
         });
     });
 
-    // Compartilhamento Nativo (Web Share API)
+    // Compartilhamento Nativo
     document.getElementById('btn-share').addEventListener('click', async () => {
         const shareData = {
             title: 'Luiz Paulo Pascon | Pro Ar Engenharia',
