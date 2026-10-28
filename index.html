@@ -1,52 +1,514 @@
-<div class="section-label">Destaques & Portfólio</div>
-<div class="accordion">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luiz Paulo Pascon | Pro Ar Engenharia Térmica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Cores de Destaque da Marca */
+            --proar-blue: #3B82F6;
+            --proar-blue-hover: #2563EB;
+            --proar-red: #EF4444;
+            --whatsapp-green: #22C55E;
+            --linkedin-blue: #0A66C2;
+            
+            /* Paleta Baseada em Tons de Cinza Neutros / Chumbo Industrial */
+            --bg-body: #090D16;
+            --bg-card: #111827;
+            --bg-element: #1F2937;
+            --bg-element-hover: #374151;
+            
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #F9FAFB;
+            --text-muted: #9CA3AF;
+            --text-subtle: #6B7280;
+        }
 
-    <!-- Card 1 -->
-    <div class="accordion-item">
-        <div class="accordion-header">
-            <span><i class="fas fa-drafting-compass" style="color: var(--proar-blue); margin-right: 8px;"></i> Projetos HVAC & Obras de Grande Porte</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content">
-            <p><strong>Sistemas Complexos:</strong> Projetos e dimensionamento de VRF/VRV, redes de ventilação/dutos e centrais térmicas de água gelada e quente (Chillers).</p>
-            <p style="margin-top: 6px;"><strong>Execução Multissetorial:</strong> Obras de infraestrutura térmica para indústrias, hospitais, shopping centers, hotéis e supermercados.</p>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 420px;
+            background: var(--bg-card);
+            min-height: 100vh;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.6);
+            position: relative;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* Área da Logo: Cartão Flutuante Integrado */
+        .header-container {
+            padding: 24px 20px 10px;
+            text-align: center;
+        }
+
+        .logo-wrapper {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 14px;
+            padding: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            width: 100%;
+            max-width: 380px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cover-photo {
+            width: 100%;
+            height: 90px;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Foto de Perfil Centralizada */
+        .profile-section {
+            position: relative;
+            text-align: center;
+            margin-top: -30px;
+            z-index: 10;
+        }
+
+        .profile-photo {
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            border: 4px solid var(--bg-card);
+            object-fit: cover;
+            background: var(--bg-element);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+        }
+
+        /* Informações Principais */
+        .profile-info {
+            text-align: center;
+            padding: 10px 20px 10px;
+        }
+
+        .profile-info h1 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            letter-spacing: -0.02em;
+        }
+
+        .profile-info p {
+            font-size: 0.88rem;
+            color: var(--proar-red);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .location {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .location i {
+            color: var(--proar-blue);
+        }
+
+        /* Seções e Botões */
+        .content {
+            padding: 0 22px 40px;
+        }
+
+        .section-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-subtle);
+            font-weight: 700;
+            margin: 24px 0 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .btn-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            gap: 10px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.88rem;
+            background: var(--bg-element);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--bg-element-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:active { transform: translateY(0); }
+
+        #btn-agenda {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            color: #FFFFFF;
+            border: none;
+        }
+        #btn-agenda:hover { box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4); }
+
+        #btn-whatsapp {
+            background: rgba(34, 197, 94, 0.08);
+            color: #4ADE80;
+            border: 1px solid rgba(34, 197, 94, 0.25);
+        }
+        #btn-whatsapp:hover { background: rgba(34, 197, 94, 0.15); }
+
+        #btn-linkedin {
+            background: rgba(10, 102, 194, 0.08);
+            color: #60A5FA;
+            border: 1px solid rgba(10, 102, 194, 0.25);
+        }
+        #btn-linkedin:hover { background: rgba(10, 102, 194, 0.15); }
+
+        #btn-calendly {
+            background: rgba(239, 68, 68, 0.08);
+            color: #F87171;
+            border: 1px solid rgba(239, 68, 68, 0.25);
+        }
+        #btn-calendly:hover { background: rgba(239, 68, 68, 0.15); }
+
+        /* Acordeão do Portfólio */
+        .accordion {
+            display: grid;
+            gap: 10px;
+        }
+
+        .accordion-item {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .accordion-header {
+            padding: 13px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            user-select: none;
+        }
+
+        .accordion-header i.fa-chevron-down {
+            font-size: 0.75rem;
+            color: var(--text-subtle);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-header i.fa-chevron-down {
+            transform: rotate(180deg);
+            color: var(--proar-blue);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0 15px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 600px;
+            transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+            padding: 12px 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .accordion-content p + p {
+            margin-top: 6px;
+        }
+
+        /* Lista de Expertise Técnica */
+        .tech-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--border-color);
+            padding: 11px 14px;
+            border-radius: 8px;
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            line-height: 1.35;
+        }
+
+        .tech-item i {
+            color: var(--proar-blue);
+            font-size: 0.95rem;
+            width: 18px;
+            text-align: center;
+        }
+
+        /* Rodapé */
+        .footer {
+            text-align: center;
+            padding: 22px 20px;
+            font-size: 0.72rem;
+            color: var(--text-subtle);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .footer-share-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .footer-share-btn:hover {
+            background: var(--bg-element);
+            color: var(--text-main);
+            border-color: var(--text-subtle);
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <!-- Bloco da Logo Integrado e Flutuante -->
+    <div class="header-container">
+        <div class="logo-wrapper">
+            <img src="capa.jpg" alt="Pro Ar Engenharia" class="cover-photo">
         </div>
     </div>
 
-    <!-- Card 2 -->
-    <div class="accordion-item">
-        <div class="accordion-header">
-            <span><i class="fas fa-hospital" style="color: var(--proar-blue); margin-right: 8px;"></i> Climatização Hospitalar & Ambientes Críticos</span>
-            <i class="fas fa-chevron-down"></i>
+    <!-- Foto de Perfil Centralizada -->
+    <div class="profile-section">
+        <img src="perfil.jpg" alt="Luiz Paulo Pascon" class="profile-photo">
+    </div>
+
+    <div class="profile-info">
+        <h1>Luiz Paulo Pascon</h1>
+        <p>Engenheiro Mecânico | Especialista HVAC</p>
+        <span class="location"><i class="fas fa-map-marker-alt"></i> Rua Aparecida 2-25, Centro, Bauru, SP</span>
+    </div>
+
+    <div class="content">
+        <div class="section-label">Conexão Profissional</div>
+        <div class="btn-list">
+
+            <a href="luiz-pascon.vcf" class="btn" id="btn-agenda" download="luiz-pascon.vcf">
+                <i class="fas fa-address-book"></i> Salvar Contato
+            </a>
+            
+            <div class="btn" id="btn-email" style="text-transform: lowercase; position: relative;">
+                <a href="mailto:luiz.pascon@proar.com.br" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; width: 100%; justify-content: center;">
+                    <i class="far fa-envelope"></i> luiz.pascon@proar.com.br
+                </a>
+                <i class="far fa-copy" id="copy-icon" style="position: absolute; right: 15px; cursor: pointer; padding: 5px; color: var(--text-subtle);" title="Copiar e-mail"></i>
+                <span id="copy-toast" style="display: none; position: absolute; right: 45px; background: var(--proar-blue); color: white; font-size: 0.75rem; padding: 4px 8px; border-radius: 6px; font-weight: 600;">Copiado!</span>
+            </div>
+            
+            <a href="https://wa.me/5514981452411?text=Olá%20Luiz,%20acessei%20seu%20cartão%20digital%20e%20gostaria%20de%20falar%20sobre%20um%20projeto." class="btn" id="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp" style="font-size: 1.1rem;"></i>
+                WhatsApp
+            </a>
+            
+            <a href="https://www.linkedin.com/in/luiz-paulo-pascon-b441a516b/" class="btn" id="btn-linkedin" target="_blank">
+                <i class="fab fa-linkedin" style="font-size: 1.1rem;"></i> LinkedIn
+            </a>
+            
         </div>
-        <div class="accordion-content">
-            <p><strong>Adequação Normativa:</strong> Projetos em estrita conformidade com a NBR 7256 (Hospitais) e normas ABNT/ISO para salas limpas e laboratórios.</p>
-            <p style="margin-top: 6px;"><strong>Controle de Contaminação:</strong> Filtragem absoluta (HEPA), cascata de pressão e prevenção de contaminação cruzada em áreas críticas.</p>
+
+        <div class="section-label">Destaques & Portfólio</div>
+        <div class="accordion">
+            <!-- Card 1: Projetos HVAC & Obras -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span><i class="fas fa-drafting-compass" style="color: var(--proar-blue); margin-right: 8px;"></i> Projetos HVAC & Obras</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Sistemas:</strong> Projetos de VRF/VRV, ventilação/dutos e água gelada/quente (Chillers).</p>
+                    <p><strong>Execução de Obras:</strong> Atuação em indústrias, hospitais, shopping centers, hotéis, supermercados e grandes empreendimentos.</p>
+                </div>
+            </div>
+
+            <!-- Card 2: Climatização Hospitalar & Ambientes Críticos -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span><i class="fas fa-hospital" style="color: var(--proar-blue); margin-right: 8px;"></i> Climatização Hospitalar & Crítica</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Normas Técnicas:</strong> Adequação à NBR 7256 (Hospitais) e normas ABNT/ISO para laboratórios e salas limpas.</p>
+                    <p><strong>Controle Ambiental:</strong> Sistemas de filtragem absoluta, controle de pressão e mitigação de contaminação cruzada.</p>
+                </div>
+            </div>
+
+            <!-- Card 3: PMOC, Laudos & Eficiência Energética -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span><i class="fas fa-file-signature" style="color: var(--proar-blue); margin-right: 8px;"></i> PMOC, Laudos & Eficiência</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Gestão Técnica:</strong> Elaboração e implantação de PMOC com responsabilidade técnica (ART).</p>
+                    <p><strong>Engenharia:</strong> Estudos avançados de eficiência energética e emissão de laudos e pareceres técnicos.</p>
+                </div>
+            </div>
+
+            <!-- Card 4: Manutenção Especializada & Comissionamento -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span><i class="fas fa-tools" style="color: var(--proar-blue); margin-right: 8px;"></i> Manutenção & Comissionamento</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Marcas Homologadas:</strong> Carrier, Daikin, Trane, Hitachi, York e Sabroe.</p>
+                    <p><strong>Linha Pesada:</strong> Chillers, VRF/VRV, Splitões, Self-Contained e Rooftops.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-label">Expertise Técnica</div>
+        <div class="tech-list">
+            <div class="tech-item">
+                <i class="fas fa-drafting-compass"></i>
+                <span>Projetos VRF / VRV</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-wind"></i>
+                <span>Projetos de Ventilação e Redes de Dutos</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-snowflake"></i>
+                <span>Projetos de Água Gelada e Quente</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-hospital"></i>
+                <span>Adequação à Norma NBR 7256 (Hospitais)</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-tools"></i>
+                <span>Manutenção: Carrier / Daikin / Trane / Hitachi / York / Sabroe</span>
+            </div>
+            <div class="tech-item">
+                <i class="far fa-file-alt"></i>
+                <span>Elaboração de PMOC</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-bolt"></i>
+                <span>Estudos de eficiência energética</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-certificate"></i>
+                <span>Laudos Técnicos</span>
+            </div>
+        </div>
+
+        <div class="section-label">Disponibilidade</div>
+        <div class="btn-list">
+            <a href="https://calendly.com/luiz-pascon-proar/reuniao" class="btn" id="btn-calendly" target="_blank">
+                <i class="far fa-calendar-check"></i> Agendar Reunião
+            </a>
         </div>
     </div>
 
-    <!-- Card 3 -->
-    <div class="accordion-item">
-        <div class="accordion-header">
-            <span><i class="fas fa-file-signature" style="color: var(--proar-blue); margin-right: 8px;"></i> Gestão de PMOC, Laudos & Eficiência</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content">
-            <p><strong>Conformidade Legal:</strong> Elaboração e gestão de PMOC com ART e responsabilidade técnica credenciada.</p>
-            <p style="margin-top: 6px;"><strong>Diagnóstico Técnico:</strong> Auditorias de eficiência energética em sistemas centrais e emissão de laudos técnicos periciais.</p>
-        </div>
+    <!-- Rodapé com o botão de compartilhamento integrado -->
+    <div class="footer">
+        <button class="footer-share-btn" id="btn-share">
+            <i class="fas fa-share-alt"></i> Compartilhar Cartão
+        </button>
+        <span>© 2026 • Pro Ar Engenharia Térmica</span>
     </div>
-
-    <!-- Card 4 -->
-    <div class="accordion-item">
-        <div class="accordion-header">
-            <span><i class="fas fa-tools" style="color: var(--proar-blue); margin-right: 8px;"></i> Manutenção Especializada & Comissionamento</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="accordion-content">
-            <p><strong>Grandes Fabricantes:</strong> Assistência técnica e comissionamento em soluções Carrier, Daikin, Trane, Hitachi, York e Sabroe.</p>
-            <p style="margin-top: 6px;"><strong>Linha Pesada:</strong> Atendimento a Chillers, VRF/VRV, Splitões, Self-Contained e Unidades Rooftop.</p>
-        </div>
-    </div>
-
 </div>
+
+<script>
+    // Copiar E-mail
+    document.getElementById('copy-icon').addEventListener('click', function(e) {
+        e.stopPropagation();
+        const email = "luiz.pascon@proar.com.br";
+        
+        navigator.clipboard.writeText(email).then(() => {
+            const icon = document.getElementById('copy-icon');
+            const toast = document.getElementById('copy-toast');
+            
+            icon.className = "fas fa-check";
+            icon.style.color = "var(--whatsapp-green)";
+            toast.style.display = "inline-block";
+            
+            setTimeout(() => {
+                icon.className = "far fa-copy";
+                icon.style.color = "var(--text-subtle)";
+                toast.style.display = "none";
+            }, 2000);
+        });
+    });
+
+    // Compartilhamento Nativo (Web Share API)
+    document.getElementById('btn-share').addEventListener('click', async () => {
+        const shareData = {
+            title: 'Luiz Paulo Pascon | Pro Ar Engenharia',
+            text: 'Cartão de Visitas Digital - Luiz Paulo
