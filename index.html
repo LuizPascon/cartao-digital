@@ -9,21 +9,23 @@
     
     <style>
         :root {
-            --proar-blue: #2563EB;
-            --proar-blue-hover: #1D4ED8;
+            /* Cores de Destaque da Marca */
+            --proar-blue: #3B82F6;
+            --proar-blue-hover: #2563EB;
             --proar-red: #EF4444;
-            --whatsapp-green: #25D366;
+            --whatsapp-green: #22C55E;
             --linkedin-blue: #0A66C2;
             
-            --bg-body: #0F172A;
-            --bg-card: #1E293B;
-            --bg-element: #334155;
-            --bg-element-hover: #475569;
+            /* Nova Paleta Baseada em Tons de Cinza Neutros / Chumbo Industrial */
+            --bg-body: #090D16;        /* Fundo externo bem escuro e neutro */
+            --bg-card: #111827;        /* Cartão principal em cinza chumbo escuro */
+            --bg-element: #1F2937;     /* Botões e cards em cinza intermediário */
+            --bg-element-hover: #374151; /* Hover em cinza mais claro */
             
-            --border-color: rgba(255, 255, 255, 0.1);
-            --text-main: #F8FAFC;
-            --text-muted: #94A3B8;
-            --text-subtle: #64748B;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #F9FAFB;
+            --text-muted: #9CA3AF;
+            --text-subtle: #6B7280;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -44,7 +46,7 @@
             max-width: 420px;
             background: var(--bg-card);
             min-height: 100vh;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.6);
             position: relative;
             border-left: 1px solid var(--border-color);
             border-right: 1px solid var(--border-color);
@@ -60,7 +62,7 @@
             background: rgba(255, 255, 255, 0.95);
             border-radius: 14px;
             padding: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             display: inline-block;
             width: 100%;
             max-width: 380px;
@@ -89,7 +91,7 @@
             border: 4px solid var(--bg-card);
             object-fit: cover;
             background: var(--bg-element);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
             display: inline-block;
         }
 
@@ -177,38 +179,38 @@
         .btn:hover {
             background: var(--bg-element-hover);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .btn:active { transform: translateY(0); }
 
         #btn-agenda {
-            background: linear-gradient(135deg, #2563EB, #1D4ED8);
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
             color: #FFFFFF;
             border: none;
         }
-        #btn-agenda:hover { box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4); }
+        #btn-agenda:hover { box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4); }
 
         #btn-whatsapp {
-            background: rgba(37, 211, 102, 0.1);
+            background: rgba(34, 197, 94, 0.08);
             color: #4ADE80;
-            border: 1px solid rgba(37, 211, 102, 0.25);
+            border: 1px solid rgba(34, 197, 94, 0.25);
         }
-        #btn-whatsapp:hover { background: rgba(37, 211, 102, 0.2); }
+        #btn-whatsapp:hover { background: rgba(34, 197, 94, 0.15); }
 
         #btn-linkedin {
-            background: rgba(10, 102, 194, 0.1);
+            background: rgba(10, 102, 194, 0.08);
             color: #60A5FA;
             border: 1px solid rgba(10, 102, 194, 0.25);
         }
-        #btn-linkedin:hover { background: rgba(10, 102, 194, 0.2); }
+        #btn-linkedin:hover { background: rgba(10, 102, 194, 0.15); }
 
         #btn-calendly {
-            background: rgba(239, 68, 68, 0.1);
+            background: rgba(239, 68, 68, 0.08);
             color: #F87171;
             border: 1px solid rgba(239, 68, 68, 0.25);
         }
-        #btn-calendly:hover { background: rgba(239, 68, 68, 0.2); }
+        #btn-calendly:hover { background: rgba(239, 68, 68, 0.15); }
 
         /* Lista de Expertise Técnica */
         .tech-list {
@@ -220,7 +222,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.015);
             border: 1px solid var(--border-color);
             padding: 11px 14px;
             border-radius: 8px;
@@ -244,7 +246,7 @@
         }
 
         .accordion-item {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.015);
             border: 1px solid var(--border-color);
             border-radius: 10px;
             overflow: hidden;
@@ -278,7 +280,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
-            background: rgba(0, 0, 0, 0.15);
+            background: rgba(0, 0, 0, 0.2);
             padding: 0 15px;
             font-size: 0.8rem;
             color: var(--text-muted);
@@ -292,7 +294,7 @@
             border-top: 1px solid var(--border-color);
         }
 
-        /* Rodapé Atualizado com o Compartilhamento Discreto */
+        /* Rodapé */
         .footer {
             text-align: center;
             padding: 22px 20px;
@@ -483,7 +485,7 @@
         });
     });
 
-    // Compartilhamento Nativo (Web Share API) movido para o rodapé
+    // Compartilhamento Nativo (Web Share API)
     document.getElementById('btn-share').addEventListener('click', async () => {
         const shareData = {
             title: 'Luiz Paulo Pascon | Pro Ar Engenharia',
